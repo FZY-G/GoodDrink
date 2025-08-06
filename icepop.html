@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <title>回上層 | 好喝一直呵</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+        }
+
+        .icepop-logo-link {
+            position: fixed;
+            right: 32px;
+            bottom: 32px;
+            z-index: 99999;
+            display: inline-block;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .icepop-logo-img {
+            width: 90px;
+            height: 126px;
+            display: block;
+            background: transparent;
+        }
+
+        @media (max-width: 600px) {
+            .icepop-logo-link {
+                right: 10px;
+                bottom: 10px;
+            }
+
+            .icepop-logo-img {
+                width: 54px;
+                height: 76px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#" class="icepop-logo-link" title="回上方" id="goTopBtn">
+        <img src="./drink.png" alt="回上方" class="icepop-logo-img" />
+    </a>
+    <script>
+        document.getElementById('goTopBtn').addEventListener('click', function (e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+
+</html>

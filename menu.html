@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <title>菜單 | 好喝一直呵</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400,700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Oswald', Arial, sans-serif;
+            background: #fff;
+            padding-top: 90px;
+            padding-bottom: 320px;
+        }
+
+        .flavor-title {
+            text-align: center;
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-top: 32px;
+            margin-bottom: 36px;
+        }
+
+        .flavor-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px 16px;
+            max-width: 1100px;
+            margin: 0 auto 48px auto;
+        }
+
+        .flavor-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .flavor-img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 6px solid #fff;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 18px;
+        }
+
+        .flavor-item h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            letter-spacing: 1px;
+        }
+
+        .flavor-item p {
+            font-size: 16px;
+            color: #444;
+            margin: 0 0 10px 0;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: 700;
+            margin-top: 4px;
+            letter-spacing: 1px;
+        }
+
+        /* 當螢幕小於寬度900PX時，呈現2行一列 */
+        @media (max-width: 900px) {
+            .flavor-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* 當螢幕小於寬度600PX時，呈現1行一列 */
+        @media (max-width: 600px) {
+            .flavor-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .flavor-title {
+                font-size: 32px;
+            }
+        }
+
+        .flavors-btn {
+            display: inline-block;
+            border: 2px solid #222;
+            padding: 100px 36px;
+            font-size: 22px;
+            color: #222;
+            background: transparent;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .flavors-btn:hover {
+            background: #222;
+            color: #fff;
+        }
+
+        .modal-dialog {
+            margin-top: 150px !important;
+            /* 增加上方間距，避免被navbar擋住 */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar"></div>
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('navbar').innerHTML = data);
+    </script>
+
+    <h3 class="flavor-title">天然口味</h3>
+    <div class="flavor-grid">
+        <div class="flavor-item">
+            <img src="./荔枝玫瑰.webp" alt="荔枝玫瑰" class="flavor-img" data-bs-toggle="modal" data-bs-target="#rose"
+                data-flavor="荔枝玫瑰">
+            <h2>荔枝玫瑰</h2>
+            <p>新品快來嚐鮮 小仙女們的最愛 荔枝玫瑰冰棒</p>
+            <div class="price">50</div>
+        </div>
+        <div class="flavor-item">
+            <img src="./西瓜芒果.webp" alt="西瓜芒果" class="flavor-img" data-bs-toggle="modal" data-bs-target="#mango"
+                data-flavor="西瓜芒果">
+            <h2>西瓜芒果</h2>
+            <p>夏日最受歡迎的水果雙搭 西瓜芒果冰棒</p>
+            <div class="price">40</div>
+        </div>
+        <div class="flavor-item">
+            <img src="./鳳梨水果茶.webp" alt="鳳梨水果茶" class="flavor-img" data-bs-toggle="modal" data-bs-target="#pineapple"
+                data-flavor="鳳梨水果茶">
+            <h2>鳳梨水果茶</h2>
+            <p>金鑽鳳梨與多重水果熬煮之果露 鳳梨水果茶冰棒</p>
+            <div class="price">40</div>
+        </div>
+        <div class="flavor-item">
+            <img src="./雙色火龍果.webp" alt="雙色火龍果" class="flavor-img" data-bs-toggle="modal" data-bs-target="#double"
+                data-flavor="雙色火龍果">
+            <h2>雙色火龍果</h2>
+            <p>紅龍果包覆白色火龍果內餡 多層次夾心口感 雙色火龍果冰棒</p>
+            <div class="price">40</div>
+        </div>
+        <div class="flavor-item">
+            <img src="./蜂蜜百香果.webp" alt="蜂蜜百香果" class="flavor-img" data-bs-toggle="modal" data-bs-target="#honey"
+                data-flavor="蜂蜜百香果">
+            <h2>蜂蜜百香果</h2>
+            <p>滿天星百香果mix厚實龍眼蜜 蜂蜜百香果冰棒</p>
+            <div class="price">40</div>
+        </div>
+        <div class="flavor-item">
+            <img src="./海鹽情人果.webp" alt="海鹽情人果" class="flavor-img" data-bs-toggle="modal" data-bs-target="#salt"
+                data-flavor="海鹽情人果">
+            <h2>海鹽情人果</h2>
+            <p>【南臺灣限定】台灣土芒果遇上日曬鹽花 酸鹹滋味 海鹽情人果冰棒</p>
+            <div class="price">40</div>
+        </div>
+        <div class="flavor-item">
+            <img src="./優格藍莓.webp" alt="優格藍莓" class="flavor-img" data-bs-toggle="modal" data-bs-target="#yogurt"
+                data-flavor="優格藍莓">
+            <h2>優格藍莓</h2>
+            <p>台灣高欉藍莓拌優格 果香馥郁 優格藍莓冰棒</p>
+            <div class="price">40</div>
+        </div>
+        <div class="flavor-item">
+            <img src="./翡翠檸檬.webp" alt="翡翠檸檬" class="flavor-img" data-bs-toggle="modal" data-bs-target="#greentea"
+                data-flavor="翡翠檸檬">
+            <h2>翡翠檸檬</h2>
+            <p>鮮榨檸檬原汁配上香瓜 酸甜清爽 翡翠檸檬冰棒</p>
+            <div class="price">40</div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Modal -->
+    <div class="modal fade" id="rose" tabindex="-1" aria-labelledby="flavorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="rose">荔枝玫瑰</h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;酸度：☆☆☆☆☆<br>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="關閉"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row align-items-center">
+                            <div class="col-md-5 text-center">
+                                <img src="./荔枝玫瑰.webp" alt="荔枝玫瑰" class="flavor-img mb-3">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="mb-3">
+                                    <p style="text-indent: 2em;">嚴選自台中太平黑葉荔枝搭配彰化田尾山形玫瑰，荔枝的濃郁甜蜜融合玫瑰的淡雅花香，
+                                        結合極具獨特韻味，呈現出一場令人陶醉的口感盛宴。</p>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="detailInfo" class="form-label">成份 :</label><br>
+                                    黑葉荔枝、食用玫瑰、鳳梨、砂糖、純水。<br>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="mango" tabindex="-1" aria-labelledby="flavorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="mango">西瓜芒果</h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;酸度：☆☆☆☆☆<br>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="關閉"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row align-items-center">
+                            <div class="col-md-5 text-center">
+                                <img src="./西瓜芒果.webp" alt="西瓜芒果" class="flavor-img mb-3">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="mb-3">
+                                    <p style="text-indent: 2em;">嚴選玉井愛文芒果搭及西螺濁水溪河畔甜美人西瓜，
+                                        芒果的美味香氣與西瓜的清甜消暑相互搭配，創造香濃而不甜膩、清爽而不單調口味，一口吃下夏天最熱門的雙重果物。</p>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="detailInfo" class="form-label">成份 :</label><br>
+                                    愛文芒果、甜美人西瓜、鮮乳、砂糖。<br>過敏原資訊：本產品含鮮乳。<br>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="pineapple" tabindex="-1" aria-labelledby="flavorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="pineapple">鳳梨水果茶</h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;酸度：★★☆☆☆<br>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="關閉"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row align-items-center">
+                            <div class="col-md-5 text-center">
+                                <img src="./鳳梨水果茶.webp" alt="鳳梨水果茶" class="flavor-img mb-3">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="mb-3">
+                                    <p style="text-indent: 2em;">選用雲林古坑金鑽鳳梨作為基底，去皮切片後加入多項水果熬煮調味，
+                                        完全以100%天然食材調出多種層次跟韻味，將水果的酸甜好滋味涷結成冰棒，酸甜清爽，等你來嘗鮮。</p>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="detailInfo" class="form-label">成份 :</label><br>
+                                    金鑽鳳梨、四季檸檬、百香果、金桔、砂糖。<br>
+                                    本產品無加入茶葉不含咖啡因。<br>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="double" tabindex="-1" aria-labelledby="flavorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="double">雙色火龍果</h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;酸度：★☆☆☆☆<br>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="關閉"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row align-items-center">
+                            <div class="col-md-5 text-center">
+                                <img src="./雙色火龍果.webp" alt="雙色火龍果" class="flavor-img mb-3">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="mb-3">
+                                    <p style="text-indent: 2em;">特選草生栽培大紅品種紅龍果，搭配鳳梨、檸檬提味，襯托紅龍果獨特香味，
+                                        裡面藏著白肉火龍果夾心，大口咬下充滿果膠與果香味，多層次的口感在口中層疊交錯。</p>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="detailInfo" class="form-label">成份 :</label><br>
+                                    紅肉火龍果、白肉火龍果、古坑鳳梨、四季檸檬、鮮乳、砂糖。</label><br>
+                                    過敏原資訊：本產品含鮮乳。<br>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="honey" tabindex="-1" aria-labelledby="flavorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="honey">蜂蜜百香果</h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;酸度：★★★☆☆<br>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="關閉"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row align-items-center">
+                            <div class="col-md-5 text-center">
+                                <img src="./蜂蜜百香果.webp" alt="蜂蜜百香果" class="flavor-img mb-3">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="mb-3">
+                                    <p style="text-indent: 2em;">
+                                        優選傳統盛名埔里百香果，透過百香果自然熟成產出最好的酸甜口感，百香果撲鼻香氣搭配上龍眼蜂蜜的厚實甜蜜，
+                                        前韻有著濃郁的水果香酸，底蘊帶有著淡淡的蜜香，蜂蜜及果香交織多層次的味蕾感受在舌尖上綻放。
+                                    </p>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="detailInfo" class="form-label">成份 :</label><br>
+                                    古坑百香果、龍眼蜜、砂糖。</label><br>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="salt" tabindex="-1" aria-labelledby="flavorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="salt">海鹽情人果</h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;酸度：★★★☆☆<br>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="關閉"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row align-items-center">
+                            <div class="col-md-5 text-center">
+                                <img src="./海鹽情人果.webp" alt="海鹽情人果" class="flavor-img mb-3">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="mb-3">
+                                    <p style="text-indent: 2em;">採用台灣原生種土芒果，以傳統作法製做，搭配台南日曬鹽花，
+                                        含海洋礦物質與微量元素，滋味濃郁直截豐實，獨特配比滋味翻轉傳統味覺，酸鹹滋味絕對讓你難忘。</p>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="detailInfo" class="form-label">成份 :</label><br>
+                                    情人果、檸檬、鳳梨、檸檬香茅、海鹽、純水、砂糖</label><br>
+                                    過敏原資訊：本產品含鮮乳。<br>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="yogurt" tabindex="-1" aria-labelledby="flavorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="yogurt">優格藍莓</h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;酸度：☆☆☆☆☆<br>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="關閉"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row align-items-center">
+                            <div class="col-md-5 text-center">
+                                <img src="./優格藍莓.webp" alt="優格藍莓" class="flavor-img mb-3">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="mb-3">
+                                    <p style="text-indent: 2em;">天然優格搭配台灣無毒栽種高欉藍莓，將顆藍莓與優格一起凍結，品嘗入口瞬間，
+                                        雍有濃稠豐厚優格及藍莓的宜人香氣，讓冰棒的風味更加升級，這不就是一種享受冰品的美好與幸福。</p>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="detailInfo" class="form-label">成份 :</label><br>
+                                    優格、藍莓、鮮乳、砂糖。</label><br>
+                                    過敏原資訊：本產品含鮮乳。<br>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="greentea" tabindex="-1" aria-labelledby="flavorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="greentea">翡翠檸檬</h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;酸度：★★☆☆☆<br>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="關閉"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row align-items-center">
+                            <div class="col-md-5 text-center">
+                                <img src="./翡翠檸檬.webp" alt="翡翠檸檬" class="flavor-img mb-3">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="mb-3">
+                                    <p style="text-indent: 2em;">選用草生摘培四季檸檬，整顆檸檬鮮榨，將果皮上檸檬香氣完整保留，
+                                        搭配香瓜的芳香馥郁滋味，組成擁有檸檬清爽及香瓜甜蜜完美組合，多重滋味值得您一嚐再嚐。</p>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="detailInfo" class="form-label">成份 :</label><br>
+                                    四季檸檬、香瓜、砂糖。</label><br>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS (含 Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 點擊圖片時帶入口味名稱
+        document.querySelectorAll('.flavor-img').forEach(function (img) {
+            img.addEventListener('click', function () {
+                document.getElementById('flavorName').value = img.getAttribute('data-flavor');
+            });
+        });
+    </script>
+
+
+    <div id="icepop"></div>
+    <script>
+        fetch('icepop.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('icepop').innerHTML = data);
+    </script>
+
+
+    <div id="footer"></div>
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+</body>
+
+</html>

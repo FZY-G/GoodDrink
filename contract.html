@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <title>據點 | 好喝一直呵</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400,700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Oswald', Arial, sans-serif;
+            background: #fff;
+            padding-top: 90px;
+            padding-bottom: 320px;
+        }
+
+        .contact-container {
+            max-width: 900px;
+            margin: 60px auto 40px auto;
+            padding: 32px;
+            background: #fafafa;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .contact-title {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar"></div>
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('navbar').innerHTML = data);
+    </script>
+
+    <div style="padding-left:50px; padding-right:50px;">
+        <!-- 篩選功能區塊開始 -->
+        <div style="background:#f6f6f6; padding:32px 0; margin-bottom:32px; text-align:center;">
+            <div style="font-size:1.4em; color:#558a2f; margin-bottom:24px;">
+                請選擇區域 / 縣市，或輸入路名關鍵字
+            </div>
+            <form class="row justify-content-center align-items-center gx-2" style="max-width:1200px; margin:0 auto;">
+                <div class="col-md-3 col-12 mb-2 mb-md-0">
+                    <select class="form-select" style="font-size:1.1em;">
+                        <option selected>請選擇縣市</option>
+                        <option>台北市</option>
+                        <option>新北市</option>
+                        <option>桃園市</option>
+                        <option>台中市</option>
+                        <option>台南市</option>
+                        <option>高雄市</option>
+                        <option>基隆市</option>
+                        <option>新竹市</option>
+                        <option>新竹縣</option>
+                        <option>苗栗縣</option>
+                        <option>彰化縣</option>
+                        <option>南投縣</option>
+                        <option>雲林縣</option>
+                        <option>嘉義市</option>
+                        <option>嘉義縣</option>
+                        <option>屏東縣</option>
+                        <option>宜蘭縣</option>
+                        <option>花蓮縣</option>
+                        <option>台東縣</option>
+                        <option>澎湖縣</option>
+                        <option>金門縣</option>
+                        <option>連江縣</option>
+                        <!-- ...可依需求增加... -->
+                    </select>
+                </div>
+                <div class="col-md-3 col-12 mb-2 mb-md-0">
+                    <select class="form-select" style="font-size:1.1em;">
+                        <option selected>請選擇區域</option>
+                        <option>中正區</option>
+                        <option>大安區</option>
+                        <option>板橋區</option>
+                        <option>桃園區</option>
+                        <option>梧棲區</option>
+                    </select>
+                </div>
+                <div class="col-md-4 col-12 mb-2 mb-md-0">
+                    <input type="text" class="form-control" placeholder="請輸入地址" style="font-size:1.1em;">
+                </div>
+                <div class="col-md-2 col-12">
+                    <button type="submit" class="btn" style="background:#558a2f; color:#fff; font-size:1.1em; width:100%;">GO</button>
+                </div>
+            </form>
+        </div>
+        <!-- 篩選功能區塊結束 -->
+
+        <h3 style="margin-top:32px;">分店資訊</h3>
+        <div class="row" style="font-size:1.1em;">
+        <!-- 篩選結果範例 -->
+            <div class="col-md-4 mb-3">
+                <strong style="color:#ff7f2a;">總公司 HEAD OFFICE</strong><br>
+                桃園市桃園區經國路899號<br>
+                899, Jingguo Rd., Taoyuan District, Taoyuan City, Taiwan<br>
+                TEL(代表號)：03-3252060、03-3252020<br>
+                FAX(代表號)：03-3252059
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-container">
+        <div class="contact-title">聯絡我們</div>
+        <form>
+            <div class="mb-3">
+                <label for="name" class="form-label">姓名</label>
+                <input type="text" class="form-control" id="name" placeholder="請輸入您的姓名" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">電子郵件</label>
+                <input type="email" class="form-control" id="email" placeholder="請輸入您的Email" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">留言內容</label>
+                <textarea class="form-control" id="message" rows="5" placeholder="請輸入您的訊息" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-dark">送出</button>
+        </form>
+    </div>
+
+
+    <div id="icepop"></div>
+    <script>
+        fetch('icepop.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('icepop').innerHTML = data);
+    </script>
+
+    <div id="footer"></div>
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+</body>
+
+</html>
